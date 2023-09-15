@@ -16,15 +16,19 @@ const App = () => {
     profile: `${process.env.PUBLIC_URL}/profile-1.jpg`,
   };
   const img = sampleDataForPhotoListItem;
+  const photos = new Array(3).fill(img);
+
   return (
     <div className="App">
-      <PhotoListItem 
-        key={img.photoId}
-        imageSource={img.imageSource}
-        profile={img.profile}
-        username={img.username}
-        location={img.location}
-      />
+      {photos.map((img,index) => (
+        <PhotoListItem 
+          key={index}
+          imageSource={img.imageSource}
+          profile={img.profile}
+          username={img.username}
+          location={img.location}
+        />
+      ))}
     </div>
   );
 };

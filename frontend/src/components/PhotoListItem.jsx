@@ -1,10 +1,13 @@
 import React from "react";
-
 import "../styles/PhotoListItem.scss";
 
+import PhotoFavButton from "./PhotoFavButton";
+
 const PhotoListItem = (props) => {
+
   return (
     <div className='photo-list__item' key={props.index}>
+      <PhotoFavButton />
       <img className='photo-list__image'src={props.imageSource} height="600px"/>
       <div className="photo-list__general-profile">
         <img src={props.profile} height='150px'         className='photo-list__user-profile'/>

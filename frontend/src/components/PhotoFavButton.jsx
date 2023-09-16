@@ -4,10 +4,15 @@ import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
 function PhotoFavButton() {
+  const [active, setActive] = useState(false);
+  const like = () => {
+    return active ? setActive(false) : setActive(true);
+  };
+
   return (
-    <div className="photo-list__fav-icon">
+    <div className="photo-list__fav-icon" onClick={like}>
       <div className="photo-list__fav-icon-svg">
-        {/* Insert React */}
+        <FavIcon selected={active}/>
       </div>
     </div>
   );

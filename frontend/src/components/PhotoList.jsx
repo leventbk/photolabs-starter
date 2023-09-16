@@ -70,7 +70,8 @@ const PhotoList = () => {
           imageSource={img.urls.full}
           profile={img.user.profile}
           username={img.user.username}
-          location={img.location.city}
+          locationCity={img.location.city}
+          locationCountry={img.location.country}
         />
       ))}
     </ul>

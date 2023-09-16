@@ -13,7 +13,7 @@ const PhotoListItem = (props) => {
         <img src={props.profile} height='150px'         className='photo-list__user-profile'/>
         <div className="photo-list__details">
           <p className="photo-list__user-info">{props.username}</p> 
-          <p className="photo-list__user-location">{props.location.city}-{props.location.country}</p>
+          <p className="photo-list__user-location">{props.locationCity}-{props.locationCountry}</p>
         </div>
       </div>
     </div>

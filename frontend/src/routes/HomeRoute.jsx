@@ -28,6 +28,7 @@ const HomeRoute = (props) => {
     <div className="home-route">
       <TopNavigation
         topics={topics}
+        isFavPhotoExist={favPhotos.length > 0 ? true : false}
       />
       <PhotoList
         photos={photos}

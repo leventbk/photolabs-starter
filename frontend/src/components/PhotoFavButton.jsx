@@ -5,7 +5,6 @@ import '../styles/PhotoFavButton.scss';
 
 function PhotoFavButton(props) {
   const { toggleFav, photoId, favPhotos } = props;
-  // const [active, setActive] = useState(false);
 
   const selected = favPhotos.includes(photoId); 
 

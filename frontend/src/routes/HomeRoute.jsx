@@ -5,7 +5,7 @@ import PhotoList from 'components/PhotoList';
 import '../styles/HomeRoute.scss';
 
 const HomeRoute = (props) => {
-  const { photos } = props;
+  const { photos, topics } = props;
   const [favPhotos, setFavPhotos] = useState([]);
   const addFav = (photoId) => {
     setFavPhotos((prevPhotos)=> [...prevPhotos, photoId]);
@@ -26,7 +26,9 @@ const HomeRoute = (props) => {
 
   return (
     <div className="home-route">
-      <TopNavigation/>
+      <TopNavigation
+        topics={topics}
+      />
       <PhotoList
         photos={photos}
         favPhotos={favPhotos}

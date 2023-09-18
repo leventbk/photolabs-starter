@@ -5,7 +5,7 @@ import PhotoList from 'components/PhotoList';
 import '../styles/HomeRoute.scss';
 
 const HomeRoute = (props) => {
-  const { photos, topics, setShowModel } = props;
+  const { photos, topics, setShowModal } = props;
   const [favPhotos, setFavPhotos] = useState([]);
   const addFav = (photoId) => {
     setFavPhotos((prevPhotos)=> [...prevPhotos, photoId]);
@@ -34,7 +34,7 @@ const HomeRoute = (props) => {
         photos={photos}
         favPhotos={favPhotos}
         toggleFav={toggleFav}
-        setShowModel={setShowModel}    
+        setShowModal={setShowModal}    
       />
     </div>
   );

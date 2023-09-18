@@ -4,7 +4,7 @@ import PhotoListItem from './PhotoListItem';
 
 const PhotoList = (props) => {
 
-  const { photos, setShowModal } = props;
+  const { photos, setShowModal, setSelectedPhoto } = props;
 
   return (
     <ul className="photo-list">
@@ -12,15 +12,11 @@ const PhotoList = (props) => {
       {photos.map((img) => (
         <PhotoListItem 
           key={img.id}
-          id={img.id}
-          imageSource={img.urls.full}
-          profile={img.user.profile}
-          username={img.user.username}
-          locationCity={img.location.city}
-          locationCountry={img.location.country}
+          photo={img}
           favPhotos={props.favPhotos}
           toggleFav={props.toggleFav}
           setShowModal={setShowModal}
+          setSelectedPhoto={setSelectedPhoto}
         />
       ))}
     </ul>

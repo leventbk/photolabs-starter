@@ -4,22 +4,26 @@ import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
 
 const PhotoListItem = (props) => {
+
+  const { photo, setShowModal, setSelectedPhoto, favPhotos, toggleFav } = props;
+  
   const handleOnClick = () => {
-    props.setShowModal(true)
+    setSelectedPhoto(photo)
+    setShowModal(true)
   }
   return (
-    <div className='photo-list__item' key={props.id}>
+    <div className='photo-list__item' key={photo.id}>
       <PhotoFavButton 
-        photoId={props.id}
-        toggleFav={props.toggleFav}
-        favPhotos={props.favPhotos}
+        photoId={photo.id}
+        toggleFav={toggleFav}
+        favPhotos={favPhotos}
       />
-      <img className='photo-list__image'src={props.imageSource} onClick={handleOnClick}/>
+      <img className='photo-list__image'src={photo.urls.regular} onClick={handleOnClick}/>
       <div className="photo-list__general-profile">
-        <img src={props.profile}className='photo-list__user-profile'/>
+        <img src={photo.user.profile}className='photo-list__user-profile'/>
         <div className="photo-list__details">
-          <p className="photo-list__user-info">{props.username}</p> 
-          <p className="photo-list__user-location">{props.locationCity}-{props.locationCountry}</p>
+          <p className="photo-list__user-info">{photo.user.name}</p> 
+          <p className="photo-list__user-location">{photo.location.city}-{photo.location.country}</p>
         </div>
       </div>
     </div>

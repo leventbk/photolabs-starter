@@ -4,7 +4,7 @@ import PhotoListItem from './PhotoListItem';
 
 const PhotoList = (props) => {
 
-  const { photos } = props;
+  const { photos, setShowModel } = props;
 
   return (
     <ul className="photo-list">
@@ -20,6 +20,7 @@ const PhotoList = (props) => {
           locationCountry={img.location.country}
           favPhotos={props.favPhotos}
           toggleFav={props.toggleFav}
+          setShowModel={setShowModel}
         />
       ))}
     </ul>

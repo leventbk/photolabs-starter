@@ -5,24 +5,8 @@ import PhotoList from 'components/PhotoList';
 import '../styles/HomeRoute.scss';
 
 const HomeRoute = (props) => {
-  const { photos, topics, setShowModal, setSelectedPhoto } = props;
-  const [favPhotos, setFavPhotos] = useState([]);
-  const addFav = (photoId) => {
-    setFavPhotos((prevPhotos)=> [...prevPhotos, photoId]);
-  }
-  const removeFav = (photoId) => {
-    setFavPhotos(prevPhotos=>prevPhotos.filter((id) => id !== photoId));
-  }
-
-  const toggleFav = (photoId) => {
-    const active = favPhotos.includes(photoId);
-    console.log(active, favPhotos)
-    if (active) {
-      removeFav(photoId);
-    } else {
-      addFav(photoId);
-    }
-  };
+  const { photos, topics, setShowModal, setSelectedPhoto, favPhotos, addFav,removeFav, toggleFav } = props;
+  
 
   return (
     <div className="home-route">

@@ -41,10 +41,15 @@ const App = () => {
       favPhotos={favPhotos}
       />
       
-      {showModel && <PhotoDetailsModal setShowModal={setShowModal} selectedPhoto={selectedPhoto} toggleFav={toggleFav} favPhotos={favPhotos}/>}
-
-
-
+      {showModel && 
+        <PhotoDetailsModal 
+          setShowModal={setShowModal} 
+          selectedPhoto={selectedPhoto} t
+          oggleFav={toggleFav} 
+          favPhotos={favPhotos}
+        />
+      }
+      
     </div>
   );
 };

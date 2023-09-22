@@ -4,7 +4,6 @@ import HomeRoute from 'routes/HomeRoute';
 import photos from "mocks/photos"
 import topics from "mocks/topics"
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
-import PhotoFavButton from 'components/PhotoFavButton';
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
@@ -44,8 +43,8 @@ const App = () => {
       {showModel && 
         <PhotoDetailsModal 
           setShowModal={setShowModal} 
-          selectedPhoto={selectedPhoto} t
-          oggleFav={toggleFav} 
+          selectedPhoto={selectedPhoto} 
+          toggleFav={toggleFav} 
           favPhotos={favPhotos}
         />
       }

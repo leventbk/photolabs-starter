@@ -17,13 +17,12 @@ const PhotoDetailsModal = (props) => {
       <button className="photo-details-modal__close-button">
         <img src={closeSymbol} onClick={handleOnClose} alt="close symbol" />
       </button>
-
+      <div className='photo-details-modal__images'>
       <PhotoFavButton 
         photoId={selectedPhoto.id}
         toggleFav={toggleFav}
         favPhotos={favPhotos}
       />
-
       <div>
         <img 
           className='photo-details-modal__image'
@@ -40,6 +39,9 @@ const PhotoDetailsModal = (props) => {
           </div>
         </div>
       </div>
+
+      </div>
+
         <div>
           <h3>Similar Photos</h3>
           {<PhotoList favPhotos={[]} toggleFav={[]}photos={Object.values(selectedPhoto.similar_photos)}/>}

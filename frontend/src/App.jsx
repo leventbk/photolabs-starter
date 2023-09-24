@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
 import './App.scss';
 import HomeRoute from 'routes/HomeRoute';
-import photos from "mocks/photos"
-import topics from "mocks/topics"
+
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 import useApplicationData from 'hooks/useApplicationData';
 
@@ -10,31 +9,15 @@ import useApplicationData from 'hooks/useApplicationData';
 const App = () => {
   const {
     state,
-    updateToFavPhotoIds,
-    setPhotoSelected,
-    onClosePhotoDetailsModal
+    setShowModal,
+    setSelectedPhoto,
+    addFav,
+    removeFav,
+    toggleFav,
+    photos,
+    topics
   } = useApplicationData();
 
-  const [showModel, setShowModal] = useState(false);
-  const [ selectedPhoto, setSelectedPhoto] = useState({});
-  const [favPhotos, setFavPhotos] = useState([]);
-
-  const addFav = (photoId) => {
-    setFavPhotos((prevPhotos)=> [...prevPhotos, photoId]);
-  }
-  const removeFav = (photoId) => {
-    setFavPhotos(prevPhotos=>prevPhotos.filter((id) => id !== photoId));
-  }
-
-  const toggleFav = (photoId) => {
-    const active = favPhotos.includes(photoId);
-    console.log(active, favPhotos)
-    if (active) {
-      removeFav(photoId);
-    } else {
-      addFav(photoId);
-    }
-  };
   return (
     <div className="App">
       <HomeRoute 
@@ -45,15 +28,15 @@ const App = () => {
       addFav={addFav} 
       removeFav={removeFav} 
       toggleFav={toggleFav}
-      favPhotos={favPhotos}
+      favPhotos={state.favPhotos}
       />
       
-      {showModel && 
+      {state.showModel && 
         <PhotoDetailsModal 
           setShowModal={setShowModal} 
-          selectedPhoto={selectedPhoto} 
+          selectedPhoto={state.selectedPhoto} 
           toggleFav={toggleFav} 
-          favPhotos={favPhotos}
+          favPhotos={state.favPhotos}
         />
       }
       

@@ -6,15 +6,18 @@ import TopicListItem from "./TopicListItem";
 
 const TopicList = (props) => {
 
-  const { topics } = props;
+  const { topics, getPhotosbyTopic } = props;
 
   return (
     <div className="top-nav-bar__topic-list">
       {topics.map((topics) => (
         <TopicListItem 
-          key={topics.id} 
+          key={topics.id}
+          topicId={topics.id}
           slug={topics.slug}
-          label={topics.title}/>
+          label={topics.title}
+          getPhotosbyTopic={getPhotosbyTopic}
+          />
       ))}
     </div>
   );

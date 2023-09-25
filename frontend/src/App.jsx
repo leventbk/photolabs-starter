@@ -14,21 +14,22 @@ const App = () => {
     addFav,
     removeFav,
     toggleFav,
-    photos,
-    topics
+    getPhotosbyTopic,
+
   } = useApplicationData();
 
   return (
     <div className="App">
       <HomeRoute 
-      photos={photos} 
-      topics={topics} 
+      photos={state.photos} 
+      topics={state.topics} 
       setShowModal={setShowModal} 
       setSelectedPhoto={setSelectedPhoto} 
       addFav={addFav} 
       removeFav={removeFav} 
       toggleFav={toggleFav}
       favPhotos={state.favPhotos}
+      getPhotosbyTopic={getPhotosbyTopic}
       />
       
       {state.showModel && 

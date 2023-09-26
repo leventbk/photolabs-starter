@@ -29,7 +29,7 @@ Two different servers will be running during development:
 <img width="1437" alt="selected images with large scale with similar images" src="https://github.com/leventbk/photolabs-starter/blob/main/frontend/public/modalWithSimilars.png">
 
 ### PHOTOS API
-<img width="1437" alt="Photos object data from API" src="https://github.com/leventbk/photolabs-starter/blob/main/frontend/public/APIPhotos/png">
+<img width="1437" alt="Photos object data from API" src="https://github.com/leventbk/photolabs-starter/blob/main/frontend/public/APIPhotos.png">
 
 ## Setup
 

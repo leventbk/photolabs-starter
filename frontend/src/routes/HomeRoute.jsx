@@ -5,6 +5,7 @@ import PhotoList from 'components/PhotoList';
 import '../styles/HomeRoute.scss';
 
 const HomeRoute = (props) => {
+  // props to pass down to childs
   const { photos, topics, setShowModal, setSelectedPhoto, favPhotos, addFav,removeFav, toggleFav, getPhotosbyTopic } = props;
   
 
@@ -13,7 +14,7 @@ const HomeRoute = (props) => {
       <TopNavigation
         topics={topics}
         getPhotosbyTopic={getPhotosbyTopic}
-        isFavPhotoExist={favPhotos.length > 0 ? true : false}
+        isFavPhotoExist={favPhotos.length > 0 ? true : false}// Notification fav icon condition
       />
       <PhotoList
         photos={photos}

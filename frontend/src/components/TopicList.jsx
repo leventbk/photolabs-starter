@@ -16,7 +16,7 @@ const TopicList = (props) => {
           topicId={topics.id}
           slug={topics.slug}
           label={topics.title}
-          getPhotosbyTopic={getPhotosbyTopic}
+          getPhotosbyTopic={getPhotosbyTopic} 
           />
       ))}
     </div>

@@ -2,13 +2,13 @@ import photos from "mocks/photos"
 import topics from "mocks/topics"
 import { useReducer, useEffect } from "react"
 
-export const ACTIONS = {  
+export const ACTIONS = {
   SET_SHOW_MODAL: 'SET_SHOW_MODAL',
   SET_SELECTED_PHOTO: 'SET_SELECTED_PHOTO',
-  ADD_TO_FAV_PHOTOS: 'ADD_TO_FAV_PHOTOS', 
+  ADD_TO_FAV_PHOTOS: 'ADD_TO_FAV_PHOTOS',
   REMOVE_FAV_PHOTOS: 'REMOVE_FAV_PHOTOS',
-  SET_PHOTOS:'SET_PHOTOS',
-  SET_TOPICS:'SET_TOPICS'
+  SET_PHOTOS: 'SET_PHOTOS',
+  SET_TOPICS: 'SET_TOPICS'
 }
 
 function reducer(state, action) {
@@ -17,7 +17,7 @@ function reducer(state, action) {
     case ACTIONS.SET_SHOW_MODAL:
       return {
         ...state,
-        showModel: action.payload
+        showModel: action.payload // photoData from API
       }
     case ACTIONS.SET_SELECTED_PHOTO:
       return {
@@ -59,19 +59,21 @@ const useApplicationData = () => {
     photos: [],
     topics: []
   };
+  //GET data from backend API
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  useEffect(()=> {
-    fetch("/api/photos").then(res => res.json()).then((data)=> {
-      dispatch({ type: ACTIONS.SET_PHOTOS, payload: data})
+  useEffect(() => {
+    fetch("/api/photos").then(res => res.json()).then((data) => {
+      dispatch({ type: ACTIONS.SET_PHOTOS, payload: data })
     })
   }, [])
-  useEffect(()=> {
-    fetch("/api/topics").then(res => res.json()).then((data)=> {
-      dispatch({ type: ACTIONS.SET_TOPICS, payload: data})
+  useEffect(() => {
+    fetch("/api/topics").then(res => res.json()).then((data) => {
+      dispatch({ type: ACTIONS.SET_TOPICS, payload: data })
     })
   }, [])
 
+  //Dispatches 
   const setShowModal = (show) => {
     dispatch({ type: ACTIONS.SET_SHOW_MODAL, payload: show })
   };
@@ -82,13 +84,13 @@ const useApplicationData = () => {
     dispatch({ type: ACTIONS.ADD_TO_FAV_PHOTOS, payload: photoId })
   };
   const removeFav = (photoId) => {
-    dispatch({ type: ACTIONS.REMOVE_FAV_PHOTOS, payload: photoId})
+    dispatch({ type: ACTIONS.REMOVE_FAV_PHOTOS, payload: photoId })
   }
 
+  //Get photos by topicId and dispatch it to Reducer
   const getPhotosbyTopic = (topicId) => {
-
     fetch(`/api/topics/photos/${topicId}`).then(res => res.json()).then(data => {
-      dispatch({ type: ACTIONS.SET_PHOTOS, payload: data})
+      dispatch({ type: ACTIONS.SET_PHOTOS, payload: data })
     })
   }
 

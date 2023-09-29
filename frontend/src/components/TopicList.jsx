@@ -11,13 +11,13 @@ const TopicList = (props) => {
   return (
     <div className="top-nav-bar__topic-list">
       {topics.map((topics) => (
-        <TopicListItem 
+        <TopicListItem //Passing topics. data as prop
           key={topics.id}
           topicId={topics.id}
           slug={topics.slug}
           label={topics.title}
-          getPhotosbyTopic={getPhotosbyTopic} 
-          />
+          getPhotosbyTopic={getPhotosbyTopic} // passing function as a prop
+        />
       ))}
     </div>
   );

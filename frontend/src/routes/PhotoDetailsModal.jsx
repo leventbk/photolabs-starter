@@ -1,10 +1,8 @@
 import React from 'react';
 
 import '../styles/PhotoDetailsModal.scss'
-import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoFavButton from 'components/PhotoFavButton';
 import PhotoList from 'components/PhotoList';
-import PhotoListItem from 'components/PhotoListItem';
 
 const PhotoDetailsModal = (props) => {
   const { setShowModal, selectedPhoto, toggleFav, favPhotos } = props;
@@ -14,7 +12,8 @@ const PhotoDetailsModal = (props) => {
   return (
     <div className="photo-details-modal">
       <button className="photo-details-modal__close-button">
-        <img src={closeSymbol} onClick={handleOnClose} alt="close symbol" />
+        {/* closeSymbol.svg is coming from public file */}
+        <img src='/closeSymbol.svg' onClick={handleOnClose} alt="close symbol" />
       </button>
       <div className='photo-details-modal__images'>
         <PhotoFavButton
